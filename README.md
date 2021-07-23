@@ -1,0 +1,1 @@
+# -islandora_lite_solr_search
