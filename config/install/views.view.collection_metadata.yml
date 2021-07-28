@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_description
-    - search_api.index.default_solr_index
+    - search_api.index.default_solr_index_islandora_lite
   module:
     - search_api
 id: collection_metadata
@@ -11,7 +11,7 @@ label: 'Collection Metadata'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_default_solr_index
+base_table: search_api_index_default_solr_index_islandora_lite
 base_field: search_api_id
 display:
   default:
@@ -54,7 +54,7 @@ display:
       fields:
         title:
           id: title
-          table: search_api_datasource_default_solr_index_entity_node
+          table: search_api_datasource_default_solr_index_islandora_lite_entity_node
           field: title
           relationship: none
           group_type: group
@@ -62,8 +62,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<h2>{{ title }}</h2>'
             make_link: false
             path: ''
             absolute: false
@@ -125,7 +125,7 @@ display:
           plugin_id: search_api_field
         field_description:
           id: field_description
-          table: search_api_datasource_default_solr_index_entity_node
+          table: search_api_datasource_default_solr_index_islandora_lite_entity_node
           field: field_description
           relationship: none
           group_type: group
@@ -196,7 +196,7 @@ display:
       filters:
         resource_type:
           id: resource_type
-          table: search_api_index_default_solr_index
+          table: search_api_index_default_solr_index_islandora_lite
           field: resource_type
           relationship: none
           group_type: group
@@ -247,7 +247,7 @@ display:
       arguments:
         nid:
           id: nid
-          table: search_api_index_default_solr_index
+          table: search_api_index_default_solr_index_islandora_lite
           field: nid
           relationship: none
           group_type: group
@@ -287,7 +287,7 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_description'
-        - 'config:search_api.index.default_solr_index'
+        - 'config:search_api.index.default_solr_index_islandora_lite'
   block_1:
     display_plugin: block
     id: block_1
@@ -295,6 +295,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      block_category: 'Islandora Lite'
     cache_metadata:
       max-age: -1
       contexts:
@@ -304,4 +305,4 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_description'
-        - 'config:search_api.index.default_solr_index'
+        - 'config:search_api.index.default_solr_index_islandora_lite'

@@ -4,14 +4,13 @@ dependencies:
   config:
     - facets.facet.resource_type
   module:
-    - context
     - facets
   theme:
     - bartik
 id: resourcetype
 theme: bartik
 region: sidebar_first
-weight: -7
+weight: -8
 provider: null
 plugin: 'facet_block:resource_type'
 settings:
@@ -20,9 +19,4 @@ settings:
   provider: facets
   label_display: visible
   block_id: resourcetype
-visibility:
-  view_inclusion:
-    id: view_inclusion
-    view_inclusion:
-      view-collection-page_1: view-collection-page_1
-    negate: false
+visibility: {  }

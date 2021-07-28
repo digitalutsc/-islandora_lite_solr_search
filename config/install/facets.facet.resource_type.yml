@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.default_solr_index
+    - search_api.index.default_solr_index_islandora_lite
     - views.view.collection
   module:
     - search_api

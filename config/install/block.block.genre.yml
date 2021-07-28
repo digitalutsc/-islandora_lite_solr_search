@@ -4,14 +4,13 @@ dependencies:
   config:
     - facets.facet.genre
   module:
-    - context
     - facets
   theme:
     - bartik
 id: genre
 theme: bartik
 region: sidebar_first
-weight: -6
+weight: -7
 provider: null
 plugin: 'facet_block:genre'
 settings:
@@ -20,9 +19,4 @@ settings:
   provider: facets
   label_display: visible
   block_id: genre
-visibility:
-  view_inclusion:
-    id: view_inclusion
-    view_inclusion:
-      view-collection-page_1: view-collection-page_1
-    negate: false
+visibility: {  }
