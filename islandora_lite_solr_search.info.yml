@@ -9,5 +9,6 @@ dependencies:
   - views
   - facets
   - context
+  - views_field_view
   - islandora_defaults
 package: 'islandora_lite'
