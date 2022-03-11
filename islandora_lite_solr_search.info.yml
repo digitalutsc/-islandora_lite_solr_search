@@ -11,4 +11,5 @@ dependencies:
   - context
   - views_field_view
   - islandora_defaults
+  - views_bulk_operations
 package: 'islandora_lite'
