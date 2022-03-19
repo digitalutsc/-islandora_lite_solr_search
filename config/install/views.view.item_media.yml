@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_use
-    - image.style.thumbnail
+    - image.style.large
   module:
     - image
     - media
@@ -81,7 +81,7 @@ display:
           type: image
           settings:
             image_link: ''
-            image_style: thumbnail
+            image_style: large
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -371,6 +371,35 @@ display:
         views_merge_rows:
           merge_rows: false
           field_config: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.media.field_media_use'
+  attachment_2:
+    id: attachment_2
+    display_title: 'Attachment Homepage'
+    display_plugin: attachment
+    position: 2
+    display_options:
+      display_description: ''
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
     cache_metadata:
       max-age: -1
       contexts:
