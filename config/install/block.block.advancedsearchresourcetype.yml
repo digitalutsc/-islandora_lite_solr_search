@@ -2,36 +2,39 @@ langcode: en
 status: true
 dependencies:
   config:
-    - views.view.term_info
+    - facets.facet.advanced_search_resource_type
   module:
     - context
-    - views
+    - facets
   theme:
-    - barriodepartments
-id: views_block__term_info_block_1
-theme: barriodepartments
-region: content
-weight: -18
+    - olivero
+id: advancedsearchresourcetype
+theme: olivero
+region: sidebar
+weight: 0
 provider: null
-plugin: 'views_block:term_info-block_1'
+plugin: 'facet_block:advanced_search_resource_type'
 settings:
-  id: 'views_block:term_info-block_1'
-  label: ''
-  label_display: '0'
-  provider: views
+  id: 'facet_block:advanced_search_resource_type'
+  label: 'AdvancedSearch: Resource Type'
+  label_display: visible
+  provider: facets
   context_mapping: {  }
-  views_label: ''
-  items_per_page: none
+  block_id: advancedsearchresourcetype
 visibility:
+  context:
+    id: context
+    negate: null
+    values: ''
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
   view_inclusion:
     id: view_inclusion
     negate: false
     view_inclusion:
       view-advanced_search-page_1: view-advanced_search-page_1
-  context:
-    id: context
-    negate: null
-    values: ''
   user_status:
     id: user_status
     negate: false
@@ -43,7 +46,3 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  context_all:
-    id: context_all
-    negate: null
-    values: ''

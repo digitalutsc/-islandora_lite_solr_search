@@ -297,6 +297,10 @@ field_settings:
         - field.storage.node.field_resource_type
       module:
         - taxonomy
+  s_islandora_linked_agent_ann:
+    label: 'Agent By Role: Annotator (ann)'
+    property_path: s_islandora_linked_agent_ann
+    type: string
   s_islandora_linked_agent_pbl:
     label: 'Agent By Role: Publisher (pbl)'
     property_path: s_islandora_linked_agent_pbl
@@ -333,6 +337,16 @@ field_settings:
     label: 'Subjects (name)'
     datasource_id: 'entity:node'
     property_path: 'field_subjects_name:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_subjects_name
+      module:
+        - taxonomy
+  subjects_name_vid:
+    label: 'Subjects Name Vocabulary'
+    datasource_id: 'entity:node'
+    property_path: 'field_subjects_name:entity:vid'
     type: string
     dependencies:
       config:
