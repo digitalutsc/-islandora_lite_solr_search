@@ -13,4 +13,5 @@ dependencies:
   - islandora_defaults
   - views_bulk_operations
   - islandora_search_processor
+  - views_flipped_table
 package: 'islandora_lite'
