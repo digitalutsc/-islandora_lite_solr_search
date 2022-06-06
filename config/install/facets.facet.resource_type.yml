@@ -1,11 +1,6 @@
 langcode: en
 status: true
-dependencies:
-  config:
-    - search_api.index.default_solr_index_islandora_lite
-    - views.view.collection
-  module:
-    - search_api
+dependencies: {  }
 id: resource_type
 name: 'Resource Type'
 url_alias: resource_type
@@ -28,6 +23,9 @@ widget:
 query_operator: or
 use_hierarchy: false
 keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 hard_limit: 0
