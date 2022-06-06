@@ -227,7 +227,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view: item_media
-          display: attachment_1
+          display: attachment_2
           arguments: '{{ fields.nid }} '
         nid_1:
           id: nid_1
