@@ -700,7 +700,7 @@ display:
           admin_label: ''
           plugin_id: search_api_field
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -750,7 +750,7 @@ display:
               - admin_label
             custom_label: 0
             label: ''
-            element_label_colon: 1
+            element_label_colon: 0
             exclude: 0
             element_type_enable: 0
             element_type: ''
