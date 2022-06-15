@@ -9,6 +9,8 @@ dependencies:
   - views
   - facets
   - context
+  - geolocation
+  - geolocation_leaflet
   - views_field_view
   - islandora_defaults
   - views_bulk_operations
