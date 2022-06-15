@@ -15,7 +15,7 @@ dependencies:
     - user
     - views_field_view
 id: collection_map
-label: 'Harley Spiller Menus Map'
+label: 'Collection Map'
 module: views
 description: ''
 tag: ''
