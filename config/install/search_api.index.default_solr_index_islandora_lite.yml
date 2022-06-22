@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_coordinates
     - field.storage.node.field_description
     - field.storage.node.field_genre
     - field.storage.node.field_geographic_subject
@@ -27,6 +28,7 @@ dependencies:
     - search_api_solr
     - node
     - user
+    - search_api_location
     - taxonomy
     - search_api
     - controlled_access_terms
@@ -90,6 +92,14 @@ field_settings:
     label: 'EDTF Creation Date Year'
     property_path: edtf_year
     type: integer
+  field_coordinates:
+    label: Coordinates
+    datasource_id: 'entity:node'
+    property_path: field_coordinates
+    type: location
+    dependencies:
+      config:
+        - field.storage.node.field_coordinates
   field_description:
     label: Description
     datasource_id: 'entity:node'
