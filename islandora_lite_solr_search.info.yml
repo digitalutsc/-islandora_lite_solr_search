@@ -19,4 +19,5 @@ dependencies:
   - islandora_search_processor
   - views_timelinejs
   - views_flipped_table
+  - views_nested_details
 package: 'islandora_lite'
