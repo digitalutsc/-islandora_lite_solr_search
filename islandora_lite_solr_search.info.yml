@@ -11,6 +11,7 @@ dependencies:
   - context
   - geolocation
   - geolocation_leaflet
+  - search_api_location
   - views_field_view
   - islandora_defaults
   - views_bulk_operations
