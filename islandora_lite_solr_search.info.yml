@@ -12,6 +12,7 @@ dependencies:
   - geolocation
   - geolocation_leaflet
   - search_api_location
+  - geocoder
   - views_field_view
   - islandora_defaults
   - views_bulk_operations
