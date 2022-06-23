@@ -11,6 +11,8 @@ dependencies:
   - context
   - geolocation
   - geolocation_leaflet
+  - geolocation_search_api
+  - geocoder_field
   - search_api_location
   - geocoder
   - views_field_view
