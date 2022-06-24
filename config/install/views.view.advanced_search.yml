@@ -158,7 +158,7 @@ display:
           hide_alter_empty: true
           view: item_media
           display: attachment_1
-          arguments: '{{ fields.nid }}'
+          arguments: '{{ raw_fields.nid }} '
         title:
           id: title
           table: search_api_datasource_default_solr_index_islandora_lite_entity_node
