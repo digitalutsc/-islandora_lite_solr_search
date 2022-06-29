@@ -23,7 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Map Solr Based View'
+      title: 'Collection Map: {{ title }}'
       fields:
         nid:
           id: nid
@@ -1133,6 +1133,10 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      cache:
+        type: none
+      defaults:
+        cache: false
       display_extenders:
         matomo:
           enabled: false

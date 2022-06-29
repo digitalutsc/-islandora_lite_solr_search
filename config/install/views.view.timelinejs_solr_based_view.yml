@@ -25,7 +25,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'TimelineJS Solr-based View'
+      title: 'Collection Timeline: {{ title }}'
       fields:
         nid:
           id: nid
@@ -615,7 +615,18 @@ display:
           plugin_id: search_api
           required: false
           skip_access: false
-      header: {  }
+      use_ajax: false
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -661,6 +672,10 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      cache:
+        type: none
+      defaults:
+        cache: false
       display_extenders:
         matomo:
           enabled: false
