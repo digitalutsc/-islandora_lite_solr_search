@@ -3,16 +3,16 @@ status: true
 dependencies:
   config:
     - search_api.index.default_solr_index_islandora_lite
-    - views.view.collection
+    - views.view.advanced_search
   module:
     - search_api
-id: publication_date_collection_
-name: 'Publication Date (Collection)'
+id: advanced_search_temporal_subject
+name: 'Temporal Subject'
 weight: 0
 min_count: 1
-url_alias: publication_date_collection_
-facet_source_id: 'search_api:views_page__collection__page_1'
-field_identifier: field_edtf_date_created
+url_alias: advanced_search_temporal_subject
+facet_source_id: 'search_api:views_page__advanced_search__page_1'
+field_identifier: temporal_subject
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -24,9 +24,16 @@ hierarchy:
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:
-  type: year_range
+  type: links
   config:
     show_numbers: false
+    soft_limit: 0
+    show_reset_link: false
+    reset_text: 'Show all'
+    hide_reset_when_no_selection: false
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
 empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: true
@@ -56,15 +63,14 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
       pre_query: 50
       build: 15
-    settings: {  }
-  year_range:
-    processor_id: year_range
-    weights:
-      pre_query: 60
-      build: 20
     settings: {  }

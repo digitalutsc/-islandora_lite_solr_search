@@ -10,7 +10,7 @@ id: advanced_search_resource_type
 name: 'AdvancedSearch: Resource Type'
 weight: 0
 min_count: 1
-url_alias: resource_type
+url_alias: advanced_search_resource_type
 facet_source_id: 'search_api:views_page__advanced_search__page_1'
 field_identifier: resource_type
 query_operator: or

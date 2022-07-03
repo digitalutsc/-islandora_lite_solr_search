@@ -1,13 +1,13 @@
 langcode: en
 status: true
 dependencies: {  }
-id: resource_type
-name: 'Resource Type'
-url_alias: resource_type
+id: collection_subject
+name: Subject
+url_alias: collection_subject
 weight: 0
 min_count: 1
 show_only_one_result: false
-field_identifier: resource_type
+field_identifier: subject
 facet_source_id: 'search_api:views_page__collection__page_1'
 widget:
   type: links
