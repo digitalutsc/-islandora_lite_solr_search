@@ -22,4 +22,5 @@ dependencies:
   - views_timelinejs
   - views_flipped_table
   - views_nested_details
+  - fontawesome
 package: 'islandora_lite'
