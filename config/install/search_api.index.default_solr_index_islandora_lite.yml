@@ -13,6 +13,7 @@ dependencies:
     - field.storage.node.field_member_of
     - field.storage.node.field_part_of
     - field.storage.node.field_physical_form
+    - field.storage.node.field_islandora_object_media
     - field.storage.node.field_resource_type
     - field.storage.node.field_subject
     - field.storage.node.field_subjects_name
@@ -30,6 +31,8 @@ dependencies:
     - user
     - search_api_location
     - taxonomy
+    - file
+    - media
     - search_api
     - controlled_access_terms
     - islandora_search_processor
@@ -261,6 +264,17 @@ field_settings:
         - field.storage.node.field_linked_agent
       module:
         - taxonomy
+  media_thumbnail_url:
+    label: 'Media Thumbnail'
+    datasource_id: 'entity:node'
+    property_path: 'field_islandora_object_media:entity:thumbnail:entity:uri:url'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_islandora_object_media
+      module:
+        - file
+        - media
   nid:
     label: ID
     datasource_id: 'entity:node'
@@ -399,6 +413,12 @@ field_settings:
     dependencies:
       module:
         - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+    configuration:
+      absolute: true
 datasource_settings:
   'entity:node':
     bundles:
