@@ -82,6 +82,8 @@ display:
           settings:
             image_link: ''
             image_style: large
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -485,6 +487,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 1
       style:
         type: default
         options:
@@ -533,6 +540,11 @@ display:
     display_plugin: attachment
     position: 2
     display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 1
       display_description: ''
       display_extenders:
         matomo:
