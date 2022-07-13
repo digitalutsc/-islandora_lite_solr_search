@@ -109,6 +109,56 @@ display:
             format_plural_values:
               - '1'
               - '@count'
+        search_api_language:
+          id: search_api_language
+          table: search_api_index_default_solr_index_islandora_lite
+          field: search_api_language
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: language
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if search_api_language == \"தமிழ்\" %}\r\n/ta\r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          native_language: false
         islandora_model:
           id: islandora_model
           table: search_api_index_default_solr_index_islandora_lite
@@ -237,14 +287,14 @@ display:
           field: nid
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: thumbnail_rewrite
           entity_type: node
           plugin_id: search_api_field
           label: ''
           exclude: true
           alter:
             alter_text: true
-            text: "{% if islandora_model == \"Collection\" %}\r\n  <a href=\"/collection/{{ nid }}\">{{ view }}</a>\r\n{% else %}\r\n  <a href=\"/node/{{ nid }}\">{{ view }}</a>\r\n{% endif %}"
+            text: "{% if islandora_model == \"Collection\" %}\r\n  <a href=\"{{ search_api_language }}/collection/{{ nid }}\">{{ view }}</a>\r\n{% else %}\r\n  <a href=\"{{ search_api_language }}/node/{{ nid }}\">{{ view }}</a>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -531,14 +581,14 @@ display:
           field: nid
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'List View'
           entity_type: node
           plugin_id: search_api_field
           label: ''
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"list-item\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">{{ view }}</div>\r\n        <div class=\"col-8\"> \r\n                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Title</div><div class=\"col-sm-8\">{{ title }} </div></div>\r\n                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Description</div><div class=\"col-sm-8\">{{ field_description }}</div></div>\r\n                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Type</div><div class=\"col-sm-8\">{{ field_resource_type }}</div></div>\r\n         </div>\r\n    </div>\r\n</div>"
+            text: "<div class=\"list-item\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">{{ nid_1 }}</div>\r\n        <div class=\"col-8\"> \r\n                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Title</div><div class=\"col-sm-8\">{{ title }} </div></div>\r\n                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Description</div><div class=\"col-sm-8\">{{ field_description }}</div></div>\r\n                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Type</div><div class=\"col-sm-8\">{{ resource_type }}</div></div>\r\n         </div>\r\n    </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -614,14 +664,14 @@ display:
           field: nid
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Grid View'
           entity_type: node
           plugin_id: search_api_field
           label: ''
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"grid-item\">\r\n<div class=\"row\">\r\n{{ view }} \r\n</div>\r\n<div class=\"row advanced-search-results-title\">\r\n{{ title }}\r\n</div>\r\n</div>"
+            text: "<div class=\"grid-item\">\r\n<div class=\"row\">\r\n{{ nid_1 }}\r\n</div>\r\n<div class=\"row advanced-search-results-title\">\r\n{{ title }}\r\n</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
