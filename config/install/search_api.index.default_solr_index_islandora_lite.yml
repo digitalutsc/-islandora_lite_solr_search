@@ -10,10 +10,10 @@ dependencies:
     - field.storage.node.field_model
     - field.storage.node.field_language
     - field.storage.node.field_linked_agent
+    - field.storage.node.field_islandora_object_media
     - field.storage.node.field_member_of
     - field.storage.node.field_part_of
     - field.storage.node.field_physical_form
-    - field.storage.node.field_islandora_object_media
     - field.storage.node.field_resource_type
     - field.storage.node.field_subject
     - field.storage.node.field_subjects_name
@@ -35,6 +35,7 @@ dependencies:
     - media
     - search_api
     - controlled_access_terms
+    - islandora_object_thumbnail
     - islandora_search_processor
 third_party_settings:
   search_api_solr:
@@ -215,6 +216,10 @@ field_settings:
         - field.storage.node.field_model
       module:
         - taxonomy
+  islandora_object_thumbnail:
+    label: 'Islandora Object Thumbnail'
+    property_path: search_api_islandora_object_thumbnail
+    type: string
   language:
     label: Language
     datasource_id: 'entity:node'
@@ -306,7 +311,7 @@ field_settings:
     type: text
     configuration:
       roles:
-        anonymous: anonymous
+        - anonymous
       view_mode:
         'entity:node':
           article: search_index
@@ -467,6 +472,7 @@ processor_settings:
       h2: 3
       h3: 2
       string: 2
+  islandora_object_thumbnail: {  }
   language_with_fallback: {  }
   linked_agent_by_type: {  }
   rendered_item:
