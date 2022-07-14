@@ -10,7 +10,7 @@ id: collection_publication_date
 name: 'Publication Date (Collection)'
 weight: 0
 min_count: 1
-url_alias: collection_publication_date
+url_alias: publication_date
 facet_source_id: 'search_api:views_page__collection__page_1'
 field_identifier: field_edtf_date_created
 query_operator: or

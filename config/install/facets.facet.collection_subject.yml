@@ -3,7 +3,7 @@ status: true
 dependencies: {  }
 id: collection_subject
 name: Subject
-url_alias: collection_subject
+url_alias: subject
 weight: 0
 min_count: 1
 show_only_one_result: false

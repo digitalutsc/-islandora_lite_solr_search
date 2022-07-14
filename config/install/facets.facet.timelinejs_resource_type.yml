@@ -10,7 +10,7 @@ id: timelinejs_resource_type
 name: 'TimelineJS Resource Type'
 weight: 0
 min_count: 1
-url_alias: timelinejs_resource_type
+url_alias: resource_type
 facet_source_id: 'search_api:views_page__timelinejs_solr_based_view__page_1'
 field_identifier: resource_type
 query_operator: or

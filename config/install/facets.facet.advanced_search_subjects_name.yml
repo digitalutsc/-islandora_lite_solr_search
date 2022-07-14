@@ -10,7 +10,7 @@ id: advanced_search_subjects_name
 name: 'Subjects (name)'
 weight: 0
 min_count: 1
-url_alias: advanced_search_subjects_name
+url_alias: subjects_name
 facet_source_id: 'search_api:views_page__advanced_search__page_1'
 field_identifier: subjects_name
 query_operator: or

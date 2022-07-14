@@ -100,6 +100,72 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: field
+          label: 'Translation language'
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if langcode__value != \"en\" %}\r\n/{{ langcode__value }}\r\n{% endif %}\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: language
+          settings:
+            link_to_entity: false
+            native_language: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_identifier:
           id: field_identifier
           table: node__field_identifier
@@ -175,7 +241,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/collection/{{ field_member_of__target_id }}">{{ field_member_of }} </a><br>'
+            text: "<a href=\"{{ langcode }}/collection/{{ field_member_of__target_id }}\">{{ field_member_of }} </a><br>\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -300,7 +366,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set linked_agent_info = field_linked_agent|split(':') %}\r\n{{ linked_agent_info[0] }} : <a href=\"/search-results?f[0]=linked_agent:{{ linked_agent_info[1] }}&term_id={{ field_linked_agent__target_id }}\">{{ linked_agent_info[1] }}</a><br>"
+            text: "{% set linked_agent_info = field_linked_agent|split(':') %}\r\n{{ linked_agent_info[0] }} : <a href=\"{{ langcode }}/search-results?f[0]=linked_agent:{{ linked_agent_info[1] }}&term_id={{ field_linked_agent__target_id }}\">{{ linked_agent_info[1] }}</a><br>"
             make_link: false
             path: ''
             absolute: false
@@ -492,7 +558,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/search-results?f[0]=language:{{ field_language }}&term_id={{ field_language__target_id }}">{{ field_language }}</a><br>'
+            text: '<a href="{{ langcode }}/search-results?f[0]=language:{{ field_language }}&term_id={{ field_language__target_id }}">{{ field_language }}</a><br>'
             make_link: false
             path: ''
             absolute: false
@@ -555,7 +621,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/search-results?f[0]=genre:{{ field_genre }}&term_id={{ field_genre__target_id }}">{{ field_genre }}</a><br>'
+            text: '<a href="{{ langcode }}/search-results?f[0]=genre:{{ field_genre }}&term_id={{ field_genre__target_id }}">{{ field_genre }}</a><br>'
             make_link: false
             path: ''
             absolute: false
@@ -618,7 +684,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/search-results?f[0]=resource_type:{{ field_resource_type }}&term_id={{ field_resource_type__target_id }}">{{ field_resource_type }}</a>'
+            text: '<a href="{{ langcode }}/search-results?f[0]=resource_type:{{ field_resource_type }}&term_id={{ field_resource_type__target_id }}">{{ field_resource_type }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -743,8 +809,8 @@ display:
           label: Subject
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a href="{{ langcode }}/search-results?f[0]=subject:{{ field_subject }} &term_id={{ field_subject__target_id }}">{{ field_subject }}</a><br>'
             make_link: false
             path: ''
             absolute: false
@@ -778,13 +844,13 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: true
-          empty_zero: true
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -793,7 +859,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ''
           field_api_classes: false
         field_geographic_subject:
           id: field_geographic_subject
@@ -806,8 +872,8 @@ display:
           label: 'Geographic Subject'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a href="{{ langcode }}/search-results?f[0]=subject:{{ field_geographic_subject }} &term_id={{ field_geographic_subject__target_id }}">{{ field_geographic_subject }}</a><br>'
             make_link: false
             path: ''
             absolute: false
@@ -1232,6 +1298,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
         matomo:
           enabled: false
@@ -1247,7 +1314,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'

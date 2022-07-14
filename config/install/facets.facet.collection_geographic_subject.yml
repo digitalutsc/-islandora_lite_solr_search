@@ -10,7 +10,7 @@ id: collection_geographic_subject
 name: 'Geographic Subject '
 weight: 0
 min_count: 1
-url_alias: collection_geographic_subject
+url_alias: geographic_subject
 facet_source_id: 'search_api:views_page__collection__page_1'
 field_identifier: geographic_subject
 query_operator: or

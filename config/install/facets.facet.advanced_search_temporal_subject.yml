@@ -10,7 +10,7 @@ id: advanced_search_temporal_subject
 name: 'Temporal Subject'
 weight: 0
 min_count: 1
-url_alias: advanced_search_temporal_subject
+url_alias: temporal_subject
 facet_source_id: 'search_api:views_page__advanced_search__page_1'
 field_identifier: temporal_subject
 query_operator: or

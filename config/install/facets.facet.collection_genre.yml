@@ -10,7 +10,7 @@ id: collection_genre
 name: Genre
 weight: 0
 min_count: 1
-url_alias: collection_genre
+url_alias: genre
 facet_source_id: 'search_api:views_page__collection__page_1'
 field_identifier: genre
 query_operator: or

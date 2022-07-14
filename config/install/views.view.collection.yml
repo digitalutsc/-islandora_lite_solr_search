@@ -118,7 +118,7 @@ display:
           admin_label: ''
           plugin_id: language
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "{% if search_api_language == \"தமிழ்\" %}\r\n/ta\r\n{% endif %}"
