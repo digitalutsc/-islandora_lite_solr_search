@@ -14,6 +14,7 @@ dependencies:
   - geolocation_search_api
   - geocoder_field
   - search_api_location
+  - islandora_object_thumbnail
   - geocoder
   - views_field_view
   - islandora_defaults
