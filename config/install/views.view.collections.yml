@@ -156,8 +156,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           native_language: false
-        view:
-          id: view
+        view_1:
+          id: view_1
           table: views
           field: view
           relationship: none
@@ -206,7 +206,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view: item_media
-          display: attachment_2
+          display: attachment_1
           arguments: '{{ raw_fields.nid }} '
         nid_1:
           id: nid_1
@@ -218,7 +218,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: '<a href="{{ search_api_language }}/collection/{{ nid }}">{{ view }}</a>'
@@ -301,9 +301,9 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
+            alter_text: false
             text: '<p><h3><a href="/collection/{{ nid }}">{{ title }}</a></h3></p>'
             make_link: false
             path: ''
@@ -329,7 +329,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: h3
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -372,7 +372,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -432,6 +432,89 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
+        nid_2:
+          id: nid_2
+          table: search_api_datasource_default_solr_index_islandora_lite_entity_node
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: 'Collection Row (Accessiblity Tested)'
+          entity_type: node
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"/collection/{{ nid }}\">\r\n<div class=\"row\">\r\n     <div class=\"col-lg-3\">{{ view_1 }}</div>\r\n     <div class=\"col-lg-9\">\r\n           <p><h2>{{ title }}</h2></p>\r\n           <p>{{ field_description }} </p>\r\n      </div>\r\n</div>\r\n</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_numeric
+          fallback_options:
+            set_precision: false
+            precision: 0
+            decimal: .
+            separator: ','
+            format_plural: false
+            format_plural_string: !!binary MQNAY291bnQ=
+            prefix: ''
+            suffix: ''
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            format_plural_values:
+              - '1'
+              - '@count'
       pager:
         type: mini
         options:
@@ -602,50 +685,11 @@ display:
         operator: AND
         groups: {  }
       style:
-        type: table
+        type: default
         options:
           grouping: {  }
-          row_class: table-row
-          default_row_class: true
-          columns:
-            nid: nid
-            view: nid_1
-            nid_1: nid_1
-            title: title
-            field_description: title
-          default: '-1'
-          info:
-            nid:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            view:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid_1:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            title:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_description:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
+          row_class: collection-row
+          default_row_class: false
       row:
         type: fields
       query:
