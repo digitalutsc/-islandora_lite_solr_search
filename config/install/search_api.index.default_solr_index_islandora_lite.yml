@@ -14,6 +14,7 @@ dependencies:
     - field.storage.node.field_member_of
     - field.storage.node.field_part_of
     - field.storage.node.field_physical_form
+    - field.storage.media.field_media_image
     - field.storage.node.field_resource_type
     - field.storage.node.field_subject
     - field.storage.node.field_subjects_name
@@ -37,6 +38,7 @@ dependencies:
     - controlled_access_terms
     - islandora_object_thumbnail
     - islandora_search_processor
+    - islandora_site_name
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -220,6 +222,10 @@ field_settings:
     label: 'Islandora Object Thumbnail'
     property_path: search_api_islandora_object_thumbnail
     type: string
+  islandora_site_name:
+    label: 'Islandora Site Name'
+    property_path: search_api_islandora_site_name
+    type: string
   language:
     label: Language
     datasource_id: 'entity:node'
@@ -269,6 +275,17 @@ field_settings:
         - field.storage.node.field_linked_agent
       module:
         - taxonomy
+  media_file_alt_text:
+    label: 'Media File Alt Text'
+    datasource_id: 'entity:node'
+    property_path: 'field_islandora_object_media:entity:field_media_image:alt'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_islandora_object_media
+      module:
+        - media
   media_thumbnail_url:
     label: 'Media Thumbnail'
     datasource_id: 'entity:node'
@@ -473,6 +490,7 @@ processor_settings:
       h3: 2
       string: 2
   islandora_object_thumbnail: {  }
+  islandora_site_name: {  }
   language_with_fallback: {  }
   linked_agent_by_type: {  }
   rendered_item:
