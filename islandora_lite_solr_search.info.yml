@@ -24,4 +24,5 @@ dependencies:
   - views_flipped_table
   - views_nested_details
   - fontawesome
+  - islandora_site_name
 package: 'islandora_lite'
