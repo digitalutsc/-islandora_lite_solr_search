@@ -33,7 +33,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -115,7 +115,7 @@ display:
           admin_label: ''
           plugin_id: language
           label: 'Item language'
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: "{% if search_api_language == \"தமிழ்\" %}\r\n/ta\r\n{% endif %}"
@@ -165,7 +165,7 @@ display:
           admin_label: ''
           plugin_id: view
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -218,7 +218,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: '<a href="{{ search_api_language }}/collection/{{ nid }}">{{ view }}</a>'
@@ -301,7 +301,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: '<p><h3><a href="/collection/{{ nid }}">{{ title }}</a></h3></p>'
@@ -372,7 +372,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -444,8 +444,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: "<a href=\"/collection/{{ nid }}\">\r\n<div class=\"row\">\r\n     <div class=\"col-lg-3\">{{ view_1 }}</div>\r\n     <div class=\"col-lg-9\">\r\n           <p><h2>{{ title }}</h2></p>\r\n           <p>{{ field_description }} </p>\r\n      </div>\r\n</div>\r\n</a>"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -712,6 +712,7 @@ display:
       tags:
         - 'config:field.storage.node.field_description'
         - 'config:search_api.index.default_solr_index_islandora_lite'
+        - 'search_api_list:default_solr_index_islandora_lite'
   page_1:
     id: page_1
     display_title: Page
@@ -741,3 +742,4 @@ display:
       tags:
         - 'config:field.storage.node.field_description'
         - 'config:search_api.index.default_solr_index_islandora_lite'
+        - 'search_api_list:default_solr_index_islandora_lite'
