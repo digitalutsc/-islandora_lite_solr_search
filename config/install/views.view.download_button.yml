@@ -11,15 +11,12 @@ dependencies:
     - field.storage.node.field_location_url
     - field.storage.node.field_model
   module:
-    - file
     - file_entity
-    - image
     - link
     - media
     - node
     - taxonomy
     - user
-    - views_field_view
 id: download_button
 label: 'Download Button'
 module: views
@@ -546,7 +543,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -610,7 +607,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -651,8 +648,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: file_url_plain
-          settings: {  }
+          type: file_download_link
+          settings:
+            access_message: 'You don''t have access to download this file.'
+            text: Download
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -672,7 +671,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -736,7 +735,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -777,9 +776,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image_url
+          type: file_download_link
           settings:
-            image_style: ''
+            access_message: 'You don''t have access to download this file.'
+            text: Download
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -799,7 +799,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -863,7 +863,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -917,58 +917,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: view
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          view: item_media
-          display: attachment_3
-          arguments: '{{ raw_fields.nid }} '
         view_node:
           id: view_node
           table: node
@@ -979,10 +927,10 @@ display:
           entity_type: node
           plugin_id: entity_link
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
-            text: '<strong>Permalink:</strong><a href="">{{ view_node }} </a>'
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1031,7 +979,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -1094,7 +1042,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -1158,15 +1106,15 @@ display:
           field: nid
           relationship: none
           group_type: group
-          admin_label: Overwrite
+          admin_label: ''
           entity_type: node
           entity_field: nid
           plugin_id: field
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: "<div class=\"d-flex justify-content-between bd-highlight mb-3 islandora-objects-action\">\r\n    {% if field_model != 'Paged Content' %}\r\n           {% if field_model == \"Page\" or field_model == \"Image\" or field_model == \"Digital Document\" %}\r\n             <div id=\"download-buttons\" class=\"btn-group download-button-group\" role=\"group\">\r\n                <span type=\"button\" class=\"dropdown-toggle\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\r\n                  Download\r\n                </span>\r\n                <ul class=\"dropdown-menu\">\r\n                  {% set images= view|striptags | replace({\"\\n\": \"\", \"\\r\": \"\", \"\\t\": \"\"}) | trim | split(' ') %}\r\n                  {% for image in images %}\r\n                          {% if image is not empty %}\r\n                              <li><a class=\"dropdown-item\" href=\"{{ image|striptags }}\" download> {{ image|striptags|split('.')|last|trim| upper }} </a></li>         \r\n                          {% endif %} \r\n                  {% endfor %}\r\n                </ul>\r\n              </div>    \r\n            {% else %}\r\n                <div class=\"download-btn p-2 bd-highlight\">\r\n                  {{ field_media_audio_file }}\r\n                  {{ field_media_file }}\r\n                  {{ field_media_video_file }} \r\n                  {{ field_media_oembed_video }} \r\n                  {% if field_media_document|trim is not empty  %}\r\n                    <div class=\"download-btn p-2 bd-highlight\"><span class=\"file file--mime-image-tiff file--image\"><a href=\"{{ field_media_document }}\" download>Download</a> </span></div>\r\n                  {% endif %}\r\n                </div>\r\n            {% endif %}\r\n          {% else  %}\r\n           <div id=\"download-buttons\" class=\"btn-group download-button-group\" role=\"group\">\r\n                      <span type=\"button\" class=\"dropdown-toggle\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\r\n           Download\r\n          </span>\r\n          <ul class=\"dropdown-menu\">\r\n          \r\n           {% set medias= view|striptags | replace({\"\\n\": \"\", \"\\r\": \"\", \"\\t\": \"\"}) | trim | split(' ') %}\r\n                  {% for media in medias %}\r\n                          {% if media is not empty and media|striptags|split('.')|last|trim| upper == \"PDF\" %}\r\n                              <li><a class=\"dropdown-item\" href=\"{{ media|striptags }}\" download> {{ media|striptags|split('.')|last|trim| upper }} </a></li>         \r\n                          {% endif %} \r\n            {% endfor %}\r\n            <li><a class=\"dropdown-item\" href=\"/node/{{ nid }}/children\" target=\"_blank\">Individual Pages</a></li>\r\n          </ul>\r\n          </div>\r\n    {% endif %}\r\n     <div class=\"iiif-btn p-2 bd-highlight\">\r\n            {% if field_model == 'Paged Content' %}\r\n                 <a href=\"/node/{{ nid }}/book-manifest\" id=\"iiif-manifest\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/e/e8/International_Image_Interoperability_Framework_logo.png\"  alt=\"IIIF Drag-n-drop\"/></a>\r\n            {% else %}\r\n                 <a href=\"/node/{{ nid }}/item-manifest\" id=\"iiif-manifest\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/e/e8/International_Image_Interoperability_Framework_logo.png\"  alt=\"IIIF Drag-n-drop\"/></a>\r\n            {% endif %}\r\n      </div>\r\n      {% if field_location_url is not empty %}\r\n               <div class=\"permalink p-2 bd-highlight\">Permalink:  {{ field_location_url }}</div>\r\n      {% else %}\r\n              <div class=\"permalink p-2 bd-highlight\">&nbsp;</div>\r\n      {% endif %}\r\n     \r\n</div>"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
