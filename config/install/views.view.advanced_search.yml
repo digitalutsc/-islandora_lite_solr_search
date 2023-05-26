@@ -35,7 +35,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ID
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -118,7 +118,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -188,7 +188,7 @@ display:
           admin_label: ''
           plugin_id: language
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: "{% if search_api_language == \"தமிழ்\" %}\r\n/ta\r\n{% endif %}"
@@ -238,7 +238,7 @@ display:
           admin_label: ''
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -308,7 +308,7 @@ display:
           admin_label: ''
           plugin_id: view
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -361,7 +361,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: '{{ view }}'
@@ -444,7 +444,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -515,7 +515,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: Description
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -585,7 +585,7 @@ display:
           entity_type: node
           plugin_id: search_api_field
           label: Type
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -653,6 +653,8 @@ display:
               country:
                 display_method: label
                 view_mode: default
+              exhibit:
+                display_method: label
               family:
                 display_method: label
                 view_mode: default
@@ -704,7 +706,7 @@ display:
           admin_label: ''
           plugin_id: numeric
           label: 'Relevance Score'
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -761,7 +763,7 @@ display:
           admin_label: ''
           plugin_id: search_api
           label: score
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -817,8 +819,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: "{% if islandora_model == \"Collection\" %}\r\n\t<a href=\"{{ search_api_language }}/collection/{{ nid }}\" class=\"object-link\">\r\n             <div class=\"list-item\">\r\n\t\t<div class=\"row\">\r\n\t\t    <div class=\"col-4\">{{ nid_4 }}</div>\r\n\t\t    <div class=\"col-8\"> \r\n\t\t            <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Title</div><div class=\"col-sm-8\"><h4>{{ title }}</h4> </div></div>\r\n\t\t            <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Description</div><div class=\"col-sm-8\">{{ field_description }}</div></div>\r\n\t\t            <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Type</div><div class=\"col-sm-8\">{{ resource_type }}</div></div>\r\n\t\t     \t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n                <div class=\"grid-item\">\r\n\t\t<div class=\"row\">\r\n                    {{ nid_4 }}\r\n\t\t</div>\r\n\t\t<div class=\"row advanced-search-results-title\">\r\n\t\t<h4>{{ title }}</h4>\r\n\t\t</div>\r\n\t\t</div>\r\n\t</a>\r\n{% else %}\r\n  \t  {% if field_identifier is empty %}\r\n             <a href=\"{{ search_api_language }}/node/{{ nid }}\" class=\"object-link {{ islandora_model|replace({' ': '_'}) }}\">\r\n        {% else %}\r\n            <a href=\"{{ search_api_language }}/{{ field_identifier }}\" class=\"object-link {{ islandora_model|replace({' ': '_'}) }}\">\r\n        {% endif %}   \r\n\t\t<div class=\"list-item\">\r\n\t\t    <div class=\"row\">\r\n\t\t        <div class=\"col-4\">{{ nid_4 }} </div>\r\n\t\t        <div class=\"col-8\"> \r\n                                {% if title is not empty %}\r\n\t\t                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Title</div><div class=\"col-sm-8\"><h4>{{ title }}</h4> </div></div>\r\n                               {% endif %}\r\n                               {% if field_description is not empty %}\r\n\t\t                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Description</div><div class=\"col-sm-8\">{{ field_description }}</div></div>\r\n                               {% endif %}\r\n                               {% if resource_type is not empty %}\r\n\t\t                <div class=\"row\"><div class=\"col-sm-3 advanced-search-results-title\">Type</div><div class=\"col-sm-8\">{{ resource_type }}</div></div>\r\n                               {% endif %}\r\n\t\t         </div>\r\n\t\t    </div>\r\n\t\t</div>\r\n                <div class=\"grid-item\">\r\n\t\t<div class=\"row\">\r\n\t\t{{ nid_4 }}\r\n\t\t</div>\r\n\t\t<div class=\"row advanced-search-results-title\">\r\n\t\t<h4>{{ title }}</h4>\r\n\t\t</div>\r\n\t\t</div> \r\n\t</a>\r\n{% endif %}\r\n"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1189,6 +1191,7 @@ display:
         - 'config:field.storage.node.field_identifier'
         - 'config:field.storage.node.field_resource_type'
         - 'config:search_api.index.default_solr_index_islandora_lite'
+        - 'search_api_list:default_solr_index_islandora_lite'
   page_1:
     id: page_1
     display_title: Page
@@ -1226,3 +1229,4 @@ display:
         - 'config:field.storage.node.field_identifier'
         - 'config:field.storage.node.field_resource_type'
         - 'config:search_api.index.default_solr_index_islandora_lite'
+        - 'search_api_list:default_solr_index_islandora_lite'
